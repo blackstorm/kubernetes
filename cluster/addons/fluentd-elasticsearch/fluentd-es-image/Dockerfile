@@ -38,6 +38,7 @@ RUN BUILD_DEPS="make gcc g++ libc6-dev ruby-dev libffi-dev" \
                      libjemalloc1 \
                      ruby \
     && echo 'gem: --no-document' >> /etc/gemrc \
+    && gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ \
     && gem install --file Gemfile \
     && apt-get purge -y --auto-remove \
                      -o APT::AutoRemove::RecommendsImportant=false \
